@@ -14,3 +14,8 @@ button {
   display: inline;
   margin: 12px;
 }
+
+.the-white {
+  background-color: white;
+  border-color: grey;
+}

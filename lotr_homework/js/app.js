@@ -246,11 +246,9 @@ alert("The Horn of Gondor has been blown");
 // Chapter 11
 // // ============
 const itsDangerousToGoAlone = () => {
-  // 1. take Frodo and Sam out of the fellowship and move them to Mordor (they don't need to be inside 
-  // a ul in Mordor)
-
+  // 1. take Frodo and Sam out of the fellowship and move them to Mordor (they don't need to be inside a ul in Mordor)
+  $('#Mordor').append($(".hobbit:contains('Frodo'), .hobbit:contains('Sam')"));
   // 2. add a div with an id of 'mount-doom' to Mordor
-
 };
 
 // COMMIT YOUR WORK
@@ -261,13 +259,13 @@ const itsDangerousToGoAlone = () => {
 // Chapter 12
 // ============
 const weWantsIt = () => {
-
   // 1. Create a div with an id of 'gollum' and add it to Mordor
-
+$('#Mordor').append('<div id = gollum></div>');
+$('#gollum').append($('#the-ring'));
+$('mount-doom').append($('#gollum'));
   // 2. Move the ring from Frodo and give it to Gollum
 
   // 3. Move Gollum into Mount Doom
-
 };
 
 // COMMIT YOUR WORK
@@ -277,14 +275,13 @@ const weWantsIt = () => {
 // Chapter 13
 // ============
 const thereAndBackAgain = () => {
-
-  // 1. remove Gollum and the Ring from the DOM
-
+    // 1. remove Gollum and the Ring from the DOM
+$('#gollum').remove();
   // 2. remove all the baddies from the DOM
-
+$('#baddies').remove();
   // 3. Move all the hobbits back to the shire
-
-};
+$('#hobbits').appendTo($('#The-Shire'));
+  };
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 13 complete - Gollum and the ring are gone, the baddies are 
@@ -312,13 +309,19 @@ $(() => {
   $('#11').on('click', itsDangerousToGoAlone);
   $('#12').on('click', weWantsIt);
   $('#13').on('click', thereAndBackAgain);
-  $('#1').click();
-  $('#2').click();
-  $('#3').click();
-  $('#4').click();
-  $('#5').click();
-  $('#6').click();
-  $('#7').click();
-  $('#8').click();
-  $('#9').click();
+  // $('#1').click();
+  // $('#2').click();
+  // $('#3').click();
+  // $('#4').click();
+  // $('#5').click();
+  // $('#6').click();
+  // $('#7').click();
+  // $('#8').click();
+  // $('#9').click();
+  // $('#10').click();
+  // $('#11').click();
+  // $('#12').click();
+  // $('#13').click();
+  // $('#14').click();
+  // $('#15').click();
 });

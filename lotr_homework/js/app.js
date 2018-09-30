@@ -51,10 +51,12 @@ const lands = [
   const makeMiddleEarth = () => {
   const $middleEarth = $('<section/>')
   $middleEarth.attr('id', 'middle-earth');
+  // another way to write the above const midEarth = $('<section id = middle-earth></section');
   // 2. append the section to the body of the DOM.
-  $('body').append($middleEarth);
-// 3. use a for loop to iterate over the lands array that does the following:
-for(let i = 0; i < lands.length; i++) {
+  $('body').append($middleEarth); 
+  // another way to write the above line body.append(midEarth);
+  // 3. use a for loop to iterate over the lands array that does the following:
+  for(let i = 0; i < lands.length; i++) {
     //   3a. creates an article tag (there should be one for each land when the loop is done)
   const $land = $('<article/>');
     //   3b. gives each land article an `id` tag of the corresponding land name
@@ -74,27 +76,26 @@ for(let i = 0; i < lands.length; i++) {
 // ============
 
 const makeHobbits = () => {
+  // 1. display an unordered list of the hobbits in the shire.
+  // hint: create a 'ul' outside the loop upon which to append the 'li's
+  // 2. give each hobbit a class of "hobbit"
+  // hint: get 'The-Shire' by using its id
   const $hobbitList = $('<ul class="hobbits"></ul>')
   hobbits.forEach((hobbit) => {
-    // console.log('hobbit');
     const $hobbit = $('<li/>')
     $hobbit.text(hobbit);
     $hobbit.addClass('hobbit');
-    // $('.hobbit').append($hobbitList)
     $hobbit.appendTo($hobbitList);
   })
   $('#The-Shire').append($hobbitList);
 }
-//   // 1. display an unordered list of the hobbits in the shire.
-
-//    // hint: create a 'ul' outside the loop upon which to append the 'li's
-//    // 2. give each hobbit a class of "hobbit"
-
-//    // losing the code below
-
-  // hint: get 'The-Shire' by using its id
-
+// another way to write the above
+// $('#The-Shire').append(`<ul id='hobbits'></ul>`)
+// for (let i = 0 ; i < hobbits.length; i++) {
+//   $('#hobbits').append(`<li class='hobbit'>${hobbits[i]}</li>`)
+// }
 // };
+
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 2 complete - Made the Hobbits".
@@ -107,6 +108,9 @@ const keepItSecretKeepItSafe = () => {
   const $frodo = $('.hobbit:contains("Frodo")');
   $frodo.append($ring);
 }
+// another way to write the above
+// $($('.hobbit').toArray()[0]).append('<div id="the-ring"></div>')
+// };
 
   // 1. create an empty div with an id of 'the-ring'
 
@@ -135,6 +139,13 @@ const makeBaddies = () => {
     })
     $('#Mordor').append($baddyList);
   }
+// another way to write the above
+//   $('#Mordor').append(`<ul id='baddies'></ul>`);
+// for (let i = 0; i < baddies.length; i++) {
+//   $('#baddies').append(`<li class='baddy'>${baddies[i]}</li>`)
+// }
+// };
+
   // 1. display an unordered list of baddies in Mordor
 
   // 2. give each of the baddies a class of "baddy"
@@ -261,8 +272,8 @@ const itsDangerousToGoAlone = () => {
 const weWantsIt = () => {
   // 1. Create a div with an id of 'gollum' and add it to Mordor
 $('#Mordor').append('<div id = gollum></div>');
-$('#gollum').append($('#the-ring'));
-$('mount-doom').append($('#gollum'));
+$('.gollum').append($('#the-ring'));
+$('mount-doom').append($('.gollum'));
   // 2. Move the ring from Frodo and give it to Gollum
 
   // 3. Move Gollum into Mount Doom
@@ -276,11 +287,11 @@ $('mount-doom').append($('#gollum'));
 // ============
 const thereAndBackAgain = () => {
     // 1. remove Gollum and the Ring from the DOM
-$('#gollum').remove();
+$('.gollum').remove();
   // 2. remove all the baddies from the DOM
-$('#baddies').remove();
+$('.baddies').remove();
   // 3. Move all the hobbits back to the shire
-$('#hobbits').appendTo($('#The-Shire'));
+$('.hobbits').appendTo($('#The-Shire'));
   };
 
 // COMMIT YOUR WORK
